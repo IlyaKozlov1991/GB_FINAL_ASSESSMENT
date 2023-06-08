@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -17,7 +18,12 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
-        System.out.println("Hello world");
+        Cat cat1 = new Cat("Pufy", 1, "Turn");
+        Dunkey dunkey1 = new Dunkey("Ia", 4, "Go");
+        String nc = cat1.Name;
+        String nd = dunkey1.Name;
+        System.out.println("Animals: " + nc + " " + nd);
+
 //        launch();
         }
 }
