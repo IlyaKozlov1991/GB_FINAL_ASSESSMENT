@@ -1,16 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.application.animalsapp.AppController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.AppController">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="127.0" prefWidth="606.0" style="-fx-background-color: #23286B;">
+         <children>
+            <Label fx:id="wellcomeLabel" layoutX="233.0" layoutY="24.0" prefHeight="79.0" prefWidth="140.0" text="Hello!" textAlignment="CENTER" textFill="#e94a47">
+               <font>
+                  <Font name="BM HANNA 11yrs old OTF" size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="mainBackground" fitHeight="217.0" fitWidth="280.0" layoutX="192.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Main_background.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="sloganLabel1" layoutX="27.0" layoutY="149.0" text="Caring" textFill="#3e8af8">
+         <font>
+            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="sloganLabel2" layoutX="59.0" layoutY="209.0" text="for" textFill="#3e8af8">
+         <font>
+            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="sloganLabel3" layoutX="85.0" layoutY="258.0" text="those" textFill="#3e8af8">
+         <font>
+            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="sloganLabel4" layoutX="455.0" layoutY="149.0" text="Who" textFill="#3e8af8">
+         <font>
+            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="sloganLabel5" layoutX="424.0" layoutY="213.0" text="need" textFill="#3e8af8">
+         <font>
+            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="sloganLabel6" layoutX="536.0" layoutY="258.0" text="it" textFill="#3e8af8">
+         <font>
+            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="startButton" layoutX="481.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Start" textAlignment="CENTER" textFill="#e94a47" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0">
+         <font>
+            <Font name="BM HANNA 11yrs old OTF" size="23.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

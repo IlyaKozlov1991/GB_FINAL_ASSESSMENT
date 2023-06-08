@@ -2,11 +2,11 @@ package com.application.animalsapp;
 
 public class Animal {
 
-    String Name;
+    private String Name;
 
     public Animal(String NAME) {
 
-        this.Name = NAME;
+        Name = NAME;
 
     }
 
