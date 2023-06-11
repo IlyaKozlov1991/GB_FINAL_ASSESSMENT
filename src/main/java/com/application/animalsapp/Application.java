@@ -36,12 +36,24 @@ public class Application extends javafx.application.Application {
 //            System.out.println(temp[i] + "/");
 //        }
 
-        List<String> commands = new ArrayList<>();
-        commands.add("Come here");
-        commands.add("Eat");
-        commands.add("Sleep");
-        Cat cat = new Cat("Kity", "2020-07-12", commands);
-        cat.showInfo();
+//        List<String> commands = new ArrayList<>();
+//        commands.add("Come here");
+//        commands.add("Eat");
+//        commands.add("Sleep");
+//        Cat cat = new Cat("Kity", "2020-07-12", commands);
+//        cat.showInfo();
+//        commands.clear();
+//        commands.add("Go");
+//        commands.add("Stop");
+//        commands.add("Turn");
+//        Horse horse = new Horse("Cloud", "2019-08-13", commands);
+//        horse.showInfo();
+//        cat.addCommand("Freeze");
+//        cat.showInfo();
+        DataBaseConnector connector = new DataBaseConnector("jdbc:mysql://127.0.0.1:3306/lesson002",
+                                                            "root",
+                                                        "mysql1234");
+        connector.readDB();
 
 //        launch();
 

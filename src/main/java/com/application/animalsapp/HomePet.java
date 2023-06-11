@@ -3,11 +3,13 @@ package com.application.animalsapp;
 import java.util.List;
 
 public class HomePet extends  Animal{
+
+    String Name;
     String Birth;
     List<String> Commands;
 
     public HomePet(String NAME, String BIRTH, List<String> COMMANDS) {
-        super(NAME);
+        Name = NAME;
         Birth = BIRTH;
         Commands = COMMANDS;
     }
@@ -21,10 +23,10 @@ public class HomePet extends  Animal{
 //    }
 
     public  void showInfo() {
-        String temp = "";
-        for (int i = 0; i < Commands.size(); i++) {
-            temp = temp + Commands.get(i) + ",";
-        }
-        System.out.println("Name: " + getName() + " | Birth: " + Birth + " | Commands: " + temp);
+        System.out.println("Name: " + Name + " | Birth: " + Birth + " | Commands: " + Commands.toString());
+    }
+
+    public void addCommand(String newCommand) {
+        Commands.add(newCommand);
     }
 }

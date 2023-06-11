@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F3EFF8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.AppController">
    <children>
       <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="127.0" prefWidth="606.0" style="-fx-background-color: #23286B;">
          <children>
-            <Label fx:id="wellcomeLabel" layoutX="233.0" layoutY="24.0" prefHeight="79.0" prefWidth="140.0" text="Hello!" textAlignment="CENTER" textFill="#e94a47">
+            <Label fx:id="wellcomeLabel" layoutX="87.0" layoutY="24.0" prefHeight="79.0" prefWidth="433.0" text="GB Animal  Shelter" textAlignment="CENTER" textFill="#e94a47">
                <font>
                   <Font name="BM HANNA 11yrs old OTF" size="50.0" />
                </font>
@@ -29,12 +28,12 @@
             <Font name="BM HANNA 11yrs old OTF" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="sloganLabel2" layoutX="59.0" layoutY="209.0" text="for" textFill="#3e8af8">
+      <Label fx:id="sloganLabel2" layoutX="49.0" layoutY="213.0" text="for" textFill="#3e8af8">
          <font>
             <Font name="BM HANNA 11yrs old OTF" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="sloganLabel3" layoutX="85.0" layoutY="258.0" text="those" textFill="#3e8af8">
+      <Label fx:id="sloganLabel3" layoutX="85.0" layoutY="266.0" text="those" textFill="#3e8af8">
          <font>
             <Font name="BM HANNA 11yrs old OTF" size="40.0" />
          </font>
@@ -44,12 +43,12 @@
             <Font name="BM HANNA 11yrs old OTF" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="sloganLabel5" layoutX="424.0" layoutY="213.0" text="need" textFill="#3e8af8">
+      <Label fx:id="sloganLabel5" layoutX="423.0" layoutY="213.0" text="need" textFill="#3e8af8">
          <font>
             <Font name="BM HANNA 11yrs old OTF" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="sloganLabel6" layoutX="536.0" layoutY="258.0" text="it" textFill="#3e8af8">
+      <Label fx:id="sloganLabel6" layoutX="536.0" layoutY="266.0" text="it" textFill="#3e8af8">
          <font>
             <Font name="BM HANNA 11yrs old OTF" size="40.0" />
          </font>

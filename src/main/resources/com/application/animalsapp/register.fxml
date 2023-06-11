@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.RegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F3EFF8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.RegisterController">
     <children>
         <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="127.0" prefWidth="606.0" style="-fx-background-color: #23286B;">
             <children>
@@ -31,5 +31,6 @@
             <Font name="BM HANNA 11yrs old OTF" size="23.0" />
          </font>
       </Button>
+      <Button layoutX="532.0" layoutY="340.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Help" textFill="#e94a47" AnchorPane.bottomAnchor="34.0" AnchorPane.rightAnchor="25.0" />
     </children>
 </AnchorPane>

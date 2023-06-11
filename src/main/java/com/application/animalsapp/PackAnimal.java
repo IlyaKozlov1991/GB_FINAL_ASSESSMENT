@@ -1,11 +1,15 @@
 package com.application.animalsapp;
 
-public class PackAnimal extends Animal{
-    String Birth;
-    String Commands;
+import java.util.List;
 
-    public PackAnimal(String NAME, String BIRTH, String COMMANDS) {
-        super(NAME);
+public class PackAnimal extends Animal{
+
+    String Name;
+    String Birth;
+    List<String> Commands;
+
+    public PackAnimal(String NAME, String BIRTH, List<String> COMMANDS) {
+        Name = NAME;
         Birth = BIRTH;
         Commands = COMMANDS;
     }
@@ -14,11 +18,15 @@ public class PackAnimal extends Animal{
         return Birth;
     }
 
-    public String getCommands() {
+    public List<String> getCommands() {
         return Commands;
     }
 
     public  void showInfo() {
-        System.out.println("Name: " + getName() + " | Birth: " + Birth + " | Commands: " + Commands);
+        System.out.println("Name: " + Name + " | Birth: " + Birth + " | Commands: " + Commands.toString());
+    }
+
+    public void addCommand(String newCommand) {
+        Commands.add(newCommand);
     }
 }
