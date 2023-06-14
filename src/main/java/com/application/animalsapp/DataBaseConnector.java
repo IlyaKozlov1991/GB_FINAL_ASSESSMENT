@@ -1,43 +1,143 @@
 package com.application.animalsapp;
 
-import java.nio.charset.StandardCharsets;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataBaseConnector {
-    String URL;
-    String USER;
-    String PASSWORD;
 
-    public DataBaseConnector(String URL, String USER, String PASSWORD) {
-        this.URL = URL;
-        this.USER = USER;
-        this.PASSWORD = PASSWORD;
+public class DataBaseConnector {
+    final String URL = "jdbc:mysql://127.0.0.1:3306/animals";
+    final String USER = "root";
+    final String PASSWORD = "mysql1234";
+
+    public DataBaseConnector() {
     }
 
-    public void readDB() {
-        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);){
+    public ObservableList<Animal> readHome() {
+        ObservableList<Animal> list = FXCollections.observableArrayList();
+        List<Animal> temp = new ArrayList<>();
+        listOfHomePets(list, temp);
+        return list;
+    }
+
+    public ObservableList<Animal> readPack() {
+        ObservableList<Animal> list = FXCollections.observableArrayList();
+        List<Animal> temp = new ArrayList<>();
+        listOfPackAnimals(list, temp);
+        return  list;
+    }
+
+    public void writeDB(String table, String name, String birth, String commands) {
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);) {
             DriverManager.getDriver(URL);
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from orders");
+            statement.executeUpdate("insert into " + table + " (name, birth, commands)" +
+                    "\nvalues (\'" + name + "\', \'" + birth + "\', \'" + commands + "\')");
 
-//            List<String> output = new ArrayList<>();
-            while (resultSet.next()) {
-//                output.add(resultSet.getInt(1) + " " + resultSet.getString(2) + " " + resultSet.getInt(3));
-                System.out.println(resultSet.getInt(1) + " " + resultSet.getString(2) + " " + resultSet.getInt(3));
-
-            }
-//            for (int i = 0; i < output.size(); i++) {
-//                System.out.println(output.get(i));
-//            }
-            System.out.println("\nTable \"orders\" has been read\n");
         } catch (SQLException e) {
             System.out.println("Fault: " + e.getMessage());
         }
-        Counter counter = new Counter(0);
-        counter.add();
-        counter.getVal();
-        System.out.println("Exit");
+    }
+
+    public void addCommand(String table, String name, String newCommand) {
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);) {
+            DriverManager.getDriver(URL);
+            Statement statement = connection.createStatement();
+            String respone = "";
+            ResultSet resultSet = statement.executeQuery("select commands from " + table +
+                    "\nwhere name = \'" + name + "\'");
+            while (resultSet.next()) {
+                respone += resultSet.getString(1);
+            }
+            statement.executeUpdate("update " + table +
+                    "\nset commands = " + "\'" + respone + ", " + newCommand + "\'" +
+                    "\nwhere name = \'" + name + "\'");
+        } catch (SQLException e) {
+            System.out.println("Fault: " + e.getMessage());
+        }
+    }
+
+    private void listOfHomePets(ObservableList<Animal> list, List<Animal> temp) {
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            DriverManager.getDriver(URL);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from cats");
+            temp.add(new Cat("КОШКИ", "", ""));
+            while (resultSet.next()) {
+                HomePet homePet = new HomePet(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
+//                homePet.setName(resultSet.getString(2));
+//                homePet.setBirth(resultSet.getString(3));
+//                homePet.setCommands(resultSet.getString(4));
+                temp.add(homePet);
+            }
+            resultSet = statement.executeQuery("select * from dogs");
+            temp.add(new Cat("СОБАКИ", "", ""));
+            while (resultSet.next()) {
+                HomePet homePet = new HomePet(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
+//                homePet.setName(resultSet.getString(2));
+//                homePet.setBirth(resultSet.getString(3));
+//                homePet.setCommands(resultSet.getString(4));
+                temp.add(homePet);
+            }
+            resultSet = statement.executeQuery("select * from hamsters");
+            temp.add(new Cat("ХОМЯКИ", "", ""));
+            while (resultSet.next()) {
+                HomePet homePet = new HomePet(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
+//                homePet.setName(resultSet.getString(2));
+//                homePet.setBirth(resultSet.getString(3));
+//                homePet.setCommands(resultSet.getString(4));
+                temp.add(homePet);
+            }
+            for (Animal pet:
+                    temp) {
+                list.add(pet);
+            }
+        } catch (SQLException e) {
+            System.out.println("Fault: " + e.getMessage());
+        }
+    }
+
+    private void listOfPackAnimals(ObservableList<Animal> list, List<Animal> temp) {
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            DriverManager.getDriver(URL);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from horses");
+            temp.add(new Cat("ЛОШАДИ", "", ""));
+            while (resultSet.next()) {
+                PackAnimal packAnimal = new PackAnimal(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
+//                packAnimal.setName(resultSet.getString(2));
+//                packAnimal.setBirth(resultSet.getString(3));
+//                packAnimal.setCommands(resultSet.getString(4));
+                temp.add(packAnimal);
+            }
+            resultSet = statement.executeQuery("select * from donkeys");
+            temp.add(new Cat("ОСЛЫ", "", ""));
+            while (resultSet.next()) {
+                PackAnimal packAnimal = new PackAnimal(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
+//                packAnimal.setName(resultSet.getString(2));
+//                packAnimal.setBirth(resultSet.getString(3));
+//                packAnimal.setCommands(resultSet.getString(4));
+                temp.add(packAnimal);
+            }
+            resultSet = statement.executeQuery("select * from camels");
+            temp.add(new Cat("ВЕРБЛЮДЫ", "", ""));
+            while (resultSet.next()) {
+                PackAnimal packAnimal = new PackAnimal(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
+//                packAnimal.setName(resultSet.getString(2));
+//                packAnimal.setBirth(resultSet.getString(3));
+//                packAnimal.setCommands(resultSet.getString(4));
+                temp.add(packAnimal);
+            }
+            for (Animal animal:
+                    temp) {
+                list.add(animal);
+            }
+        } catch (SQLException e) {
+            System.out.println("Fault: " + e.getMessage());
+        }
     }
 }

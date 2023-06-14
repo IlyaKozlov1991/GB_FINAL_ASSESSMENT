@@ -51,7 +51,6 @@ public class AppController {
     @FXML
     void initialize() {
         startButton.setOnAction(actionEvent -> {
-            System.out.println("Button clicked");
             startButton.getScene().getWindow().hide();
 
             FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("register.fxml"));
@@ -62,7 +61,7 @@ public class AppController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            stage.setTitle("Animals register");
+            stage.setTitle("Добро пожаловать!");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
