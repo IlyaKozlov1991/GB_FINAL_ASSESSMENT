@@ -1,8 +1,13 @@
-package com.application.animalsapp;
+package com.application.animalsapp.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.application.animalsapp.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -10,6 +15,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AddAnimalController {
 
@@ -113,32 +119,50 @@ public class AddAnimalController {
         switch (classHolder) {
             case "Кошка":
                 Cat cat = new Cat(nameText.getText(), birthText1.getText(), commandsText.getText());
-                connector.writeDB("cats", cat.Name, cat.Birth, cat.Commands);
+                connector.addAnimal("cats", cat.getName(), cat.getBirth(), cat.getCommands());
                 break;
             case "Собака":
                 Dog dog = new Dog(nameText.getText(), birthText1.getText(), commandsText.getText());
-                connector.writeDB("dogs", dog.Name, dog.Birth, dog.Commands);
+                connector.addAnimal("dogs", dog.getName(), dog.getBirth(), dog.getCommands());
                 break;
             case "Хомяк":
                 Hamster hamster = new Hamster(nameText.getText(), birthText1.getText(), commandsText.getText());
-                connector.writeDB("hamsters", hamster.Name, hamster.Birth, hamster.Commands);
+                connector.addAnimal("hamsters", hamster.getName(), hamster.getBirth(), hamster.getCommands());
                 break;
             case "Лошадь":
                 Horse horse = new Horse(nameText.getText(), birthText1.getText(), commandsText.getText());
-                connector.writeDB("horses", horse.Name, horse.Birth, horse.Commands);
+                connector.addAnimal("horses", horse.getName(), horse.getBirth(), horse.getCommands());
+                showSuccess();
                 break;
             case "Осел":
                 Donkey donkey = new Donkey(nameText.getText(), birthText1.getText(), commandsText.getText());
-                connector.writeDB("donkeys", donkey.Name, donkey.Birth, donkey.Commands);
+                connector.addAnimal("donkeys", donkey.getName(), donkey.getBirth(), donkey.getCommands());
+                showSuccess();
                 break;
             case "Верблюд":
                 Camel camel = new Camel(nameText.getText(), birthText1.getText(), commandsText.getText());
-                connector.writeDB("camels", camel.Name, camel.Birth, camel.Commands);
+                connector.addAnimal("camels", camel.getName(), camel.getBirth(), camel.getCommands());
+                showSuccess();
                 break;
         }
         nameText.setVisible(false);
         birthText1.setVisible(false);
         commandsText.setVisible(false);
+    }
+
+    private void showSuccess() {
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("animal-success.fxml"));
+        Stage stage = new Stage();
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 400, 150);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Success");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 
 }

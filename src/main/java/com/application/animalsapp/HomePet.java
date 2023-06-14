@@ -2,10 +2,6 @@ package com.application.animalsapp;
 
 public class HomePet extends  Animal{
 
-//    String Name;
-//    String Birth;
-//    String Commands;
-
     public HomePet(String NAME, String BIRTH, String COMMANDS) {
         Name = NAME;
         Birth = BIRTH;
@@ -19,10 +15,6 @@ public class HomePet extends  Animal{
     public String getCommands() {
         return Commands;
     }
-
-//    public void setName(String name) { Name = name; }
-//
-//    public void setBirth(String birth) { Birth = birth; }
 
     public void setCommands(String commands) { Commands = commands; }
 

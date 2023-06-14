@@ -5,33 +5,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F3EFF8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.RegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F3EFF8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.controllers.RegisterController">
     <children>
         <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="127.0" prefWidth="600.0" style="-fx-background-color: #23286B;">
             <children>
-                <Label fx:id="addLabel" layoutX="173.0" layoutY="24.0" prefHeight="79.0" prefWidth="260.0" text="Animals register" textAlignment="CENTER" textFill="#e94a47">
+                <Label fx:id="addLabel" layoutX="160.0" layoutY="24.0" prefHeight="79.0" prefWidth="281.0" text="Регистр животных" textAlignment="CENTER" textFill="#e94a47">
                     <font>
-                        <Font name="BM HANNA 11yrs old OTF" size="34.0" />
+                        <Font name="Marker Felt Thin" size="34.0" />
                     </font>
                 </Label>
             </children>
         </AnchorPane>
-        <Button fx:id="trainingButton" layoutX="218.0" layoutY="326.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="192.0" style="-fx-background-color: #23286B;" text="Training Center" textAlignment="CENTER" textFill="#e94a47" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="204.0">
+        <Button fx:id="trainingButton" layoutX="218.0" layoutY="326.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="192.0" style="-fx-background-color: #23286B;" text="Центр обучения" textAlignment="CENTER" textFill="#e94a47" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="204.0">
             <font>
-                <Font name="BM HANNA 11yrs old OTF" size="17.0" />
+                <Font name="Marker Felt Thin" size="17.0" />
             </font>
         </Button>
-      <Button fx:id="addButton" layoutX="206.0" layoutY="244.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="192.0" style="-fx-background-color: #23286B;" text="Add new animal" textAlignment="CENTER" textFill="#e94a47" AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="204.0">
+      <Button fx:id="addButton" layoutX="206.0" layoutY="244.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="192.0" style="-fx-background-color: #23286B;" text="Добавить животное" textAlignment="CENTER" textFill="#e94a47" AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="204.0">
          <font>
-            <Font name="BM HANNA 11yrs old OTF" size="17.0" />
+            <Font name="Marker Felt Thin" size="17.0" />
          </font>
       </Button>
-      <Button fx:id="listButton" layoutX="198.0" layoutY="158.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="192.0" style="-fx-background-color: #23286B;" text="List of animals" textAlignment="CENTER" textFill="#e94a47" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="204.0">
+      <Button fx:id="listButton" layoutX="198.0" layoutY="158.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="192.0" style="-fx-background-color: #23286B;" text="Список животных" textAlignment="CENTER" textFill="#e94a47" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="204.0">
          <font>
-            <Font name="BM HANNA 11yrs old OTF" size="17.0" />
+            <Font name="Marker Felt Thin" size="17.0" />
          </font>
       </Button>
-      <Button fx:id="helpButton" layoutX="513.0" layoutY="334.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Help" textFill="#e94a47" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="25.0" />
-      <Button fx:id="exitButton1" layoutX="32.0" layoutY="334.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Exit" textFill="#e94a47" AnchorPane.leftAnchor="25.0" />
+      <Button fx:id="helpButton" layoutX="513.0" layoutY="334.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Помощь" textFill="#e94a47" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="25.0">
+         <font>
+            <Font name="Marker Felt Thin" size="13.0" />
+         </font></Button>
+      <Button fx:id="exitButton1" layoutX="32.0" layoutY="334.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Выход" textFill="#e94a47" AnchorPane.leftAnchor="25.0">
+         <font>
+            <Font name="Marker Felt Thin" size="13.0" />
+         </font></Button>
     </children>
 </AnchorPane>

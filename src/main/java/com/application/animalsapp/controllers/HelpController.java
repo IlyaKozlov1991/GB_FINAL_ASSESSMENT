@@ -1,4 +1,4 @@
-package com.application.animalsapp;
+package com.application.animalsapp.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,9 +22,9 @@ public class HelpController {
 
     @FXML
     void initialize() {
-        String info = "List of animals -> показать список зарегистрированных животных\n" +
-                        "Add new animal -> добавить новое животное\n" +
-                        "Training center -> обучить животное новой команде";
+        String info = "Список животных -> показать список зарегистрированных животных\n" +
+                        "Добавить животное -> добавить новое животное\n" +
+                        "Центр обучения -> обучить животное новой команде";
         helpLabel.setText(info);
         heclpCloseButton.setOnAction(actionEvent -> {
             heclpCloseButton.getScene().getWindow().hide();

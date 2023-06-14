@@ -1,8 +1,10 @@
-package com.application.animalsapp;
+package com.application.animalsapp.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.application.animalsapp.Animal;
+import com.application.animalsapp.DataBaseConnector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

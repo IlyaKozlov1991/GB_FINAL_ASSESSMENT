@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F3EFF8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.AddAnimalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F3EFF8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.controllers.AddAnimalController">
     <children>
         <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="127.0" prefWidth="606.0" style="-fx-background-color: #23286B;">
             <children>
-                <Label fx:id="addNewLabel" layoutX="173.0" layoutY="24.0" prefHeight="79.0" prefWidth="260.0" text="Add new Animal" textAlignment="CENTER" textFill="#e94a47">
+                <Label fx:id="addNewLabel" layoutX="111.0" layoutY="24.0" prefHeight="79.0" prefWidth="385.0" text="Добавить новое животное" textAlignment="CENTER" textFill="#e94a47">
                     <font>
-                        <Font name="BM HANNA 11yrs old OTF" size="34.0" />
+                        <Font name="Marker Felt Thin" size="34.0" />
                     </font>
                 </Label>
             </children>
@@ -38,12 +38,24 @@
               </items>
             </Menu>
          </items>
+         <font>
+            <Font name="Marker Felt Thin" size="13.0" />
+         </font>
       </MenuButton>
-      <Label fx:id="choiseLable1" layoutX="171.0" layoutY="346.0" text="Добавить животное:" />
+      <Label fx:id="choiseLable1" layoutX="171.0" layoutY="346.0" text="Добавить животное:">
+         <font>
+            <Font name="Marker Felt Thin" size="13.0" />
+         </font></Label>
       <TextField fx:id="nameText" disable="true" layoutX="30.0" layoutY="202.0" promptText="Имя" AnchorPane.leftAnchor="70.0" />
       <TextField fx:id="birthText1" disable="true" layoutX="30.0" layoutY="268.0" promptText="ДР дд.мм.гггг" AnchorPane.leftAnchor="70.0" />
       <TextArea fx:id="commandsText" disable="true" layoutX="300.0" layoutY="200.0" prefHeight="94.0" prefWidth="200.0" promptText="Команды" AnchorPane.rightAnchor="70.0" />
-      <Button fx:id="addNewButton" layoutX="70.0" layoutY="341.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Добавить" textFill="#e94a47" />
-      <Label fx:id="choiseLable2" layoutX="300.0" layoutY="346.0" prefHeight="17.0" prefWidth="118.0" />
+      <Button fx:id="addNewButton" layoutX="70.0" layoutY="341.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Добавить" textFill="#e94a47">
+         <font>
+            <Font name="Marker Felt Thin" size="13.0" />
+         </font></Button>
+      <Label fx:id="choiseLable2" layoutX="300.0" layoutY="346.0" prefHeight="17.0" prefWidth="118.0">
+         <font>
+            <Font name="Marker Felt Thin" size="13.0" />
+         </font></Label>
     </children>
 </AnchorPane>

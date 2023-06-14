@@ -1,7 +1,9 @@
-package com.application.animalsapp;
+package com.application.animalsapp.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.application.animalsapp.DataBaseConnector;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

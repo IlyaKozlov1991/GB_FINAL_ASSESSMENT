@@ -5,5 +5,7 @@ module com.application.animalsapp {
 
 
     opens com.application.animalsapp to javafx.fxml;
+    opens com.application.animalsapp.controllers to javafx.fxml;
     exports com.application.animalsapp;
+    exports com.application.animalsapp.controllers;
 }

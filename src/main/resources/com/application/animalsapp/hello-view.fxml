@@ -7,55 +7,55 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F3EFF8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F3EFF8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.animalsapp.controllers.AppController">
    <children>
-      <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="127.0" prefWidth="606.0" style="-fx-background-color: #23286B;">
+      <AnchorPane prefHeight="127.0" prefWidth="606.0" style="-fx-background-color: #23286B;">
          <children>
-            <Label fx:id="wellcomeLabel" layoutX="87.0" layoutY="24.0" prefHeight="79.0" prefWidth="433.0" text="GB Animal  Shelter" textAlignment="CENTER" textFill="#e94a47">
+            <Label fx:id="wellcomeLabel" layoutX="65.0" layoutY="24.0" prefHeight="79.0" prefWidth="476.0" text="Приют для животных" textAlignment="CENTER" textFill="#e94a47">
                <font>
-                  <Font name="BM HANNA 11yrs old OTF" size="50.0" />
+                  <Font name="Marker Felt Thin" size="50.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <ImageView fx:id="mainBackground" fitHeight="217.0" fitWidth="280.0" layoutX="192.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="mainBackground" fitHeight="217.0" fitWidth="280.0" layoutX="192.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="191.0">
          <image>
             <Image url="@Images/Main_background.png" />
          </image>
       </ImageView>
-      <Label fx:id="sloganLabel1" layoutX="27.0" layoutY="149.0" text="Caring" textFill="#3e8af8">
+      <Label fx:id="sloganLabel1" layoutX="27.0" layoutY="149.0" text="С заботой" textFill="#3e8af8">
          <font>
-            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+            <Font name="Marker Felt Thin" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="sloganLabel2" layoutX="49.0" layoutY="213.0" text="for" textFill="#3e8af8">
+      <Label fx:id="sloganLabel2" layoutX="76.0" layoutY="213.0" text="о" textFill="#3e8af8">
          <font>
-            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+            <Font name="Marker Felt Thin" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="sloganLabel3" layoutX="85.0" layoutY="266.0" text="those" textFill="#3e8af8">
+      <Label fx:id="sloganLabel3" layoutX="85.0" layoutY="266.0" text="тех" textFill="#3e8af8">
          <font>
-            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+            <Font name="Marker Felt Thin" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="sloganLabel4" layoutX="455.0" layoutY="149.0" text="Who" textFill="#3e8af8">
+      <Label fx:id="sloganLabel4" layoutX="409.0" layoutY="149.0" text="Кто" textFill="#3e8af8">
          <font>
-            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+            <Font name="Marker Felt Thin" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="sloganLabel5" layoutX="423.0" layoutY="213.0" text="need" textFill="#3e8af8">
+      <Label fx:id="sloganLabel5" layoutX="473.0" layoutY="213.0" text="в ней" textFill="#3e8af8">
          <font>
-            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+            <Font name="Marker Felt Thin" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="sloganLabel6" layoutX="536.0" layoutY="266.0" text="it" textFill="#3e8af8">
+      <Label fx:id="sloganLabel6" layoutX="409.0" layoutY="266.0" text="нуждается" textFill="#3e8af8">
          <font>
-            <Font name="BM HANNA 11yrs old OTF" size="40.0" />
+            <Font name="Marker Felt Thin" size="37.0" />
          </font>
       </Label>
-      <Button fx:id="startButton" layoutX="481.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Start" textAlignment="CENTER" textFill="#e94a47" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0">
+      <Button fx:id="startButton" layoutX="481.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: #23286B;" text="Начать" textAlignment="CENTER" textFill="#e94a47" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0">
          <font>
-            <Font name="BM HANNA 11yrs old OTF" size="23.0" />
+            <Font name="Marker Felt Thin" size="23.0" />
          </font>
       </Button>
    </children>
