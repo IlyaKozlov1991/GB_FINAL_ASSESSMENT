@@ -1,6 +1,6 @@
 package com.application.animalsapp;
 
-public class Counter {
+public class Counter extends Throwable {
     int val;
 
     public Counter() {}
@@ -13,7 +13,7 @@ public class Counter {
         return val;
     }
 
-    public void incrementCounter() {
+    public void add() {
         val += 1;
     }
 

@@ -110,6 +110,9 @@ public class AddAnimalController {
             nameText.clear();
             birthText1.clear();
             commandsText.clear();
+            nameText.setDisable(true);
+            birthText1.setDisable(true);
+            commandsText.setDisable(true);
         });
     }
 
@@ -120,14 +123,17 @@ public class AddAnimalController {
             case "Кошка":
                 Cat cat = new Cat(nameText.getText(), birthText1.getText(), commandsText.getText());
                 connector.addAnimal("cats", cat.getName(), cat.getBirth(), cat.getCommands());
+                showSuccess();
                 break;
             case "Собака":
                 Dog dog = new Dog(nameText.getText(), birthText1.getText(), commandsText.getText());
                 connector.addAnimal("dogs", dog.getName(), dog.getBirth(), dog.getCommands());
+                showSuccess();
                 break;
             case "Хомяк":
                 Hamster hamster = new Hamster(nameText.getText(), birthText1.getText(), commandsText.getText());
                 connector.addAnimal("hamsters", hamster.getName(), hamster.getBirth(), hamster.getCommands());
+                showSuccess();
                 break;
             case "Лошадь":
                 Horse horse = new Horse(nameText.getText(), birthText1.getText(), commandsText.getText());
@@ -145,9 +151,6 @@ public class AddAnimalController {
                 showSuccess();
                 break;
         }
-        nameText.setVisible(false);
-        birthText1.setVisible(false);
-        commandsText.setVisible(false);
     }
 
     private void showSuccess() {

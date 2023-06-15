@@ -1,10 +1,14 @@
 package com.application.animalsapp.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.application.animalsapp.Application;
 import com.application.animalsapp.DataBaseConnector;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -12,6 +16,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AddCommandController {
 
@@ -105,34 +110,62 @@ public class AddCommandController {
             setAddNewButton();
             nameText.clear();
             commandsText.clear();
+            nameText.setDisable(true);
+            commandsText.setDisable(true);
         });
     }
 
     private void setAddNewButton() {
+        boolean flag = false;
         String classHolder = choiseLable2.getText();
         DataBaseConnector connector = new DataBaseConnector();
         switch (classHolder) {
             case "Кошка":
-                connector.addCommand("cats", nameText.getText(),commandsText.getText());
+                flag = connector.addCommand("cats", nameText.getText(),commandsText.getText());
                 break;
             case "Собака":
-                connector.addCommand("dogs", nameText.getText(),commandsText.getText());
+                flag = connector.addCommand("dogs", nameText.getText(),commandsText.getText());
                 break;
             case "Хомяк":
-                connector.addCommand("hamsters", nameText.getText(),commandsText.getText());
+                flag = connector.addCommand("hamsters", nameText.getText(),commandsText.getText());
                 break;
             case "Лошадь":
-                connector.addCommand("horses", nameText.getText(),commandsText.getText());
+                flag = connector.addCommand("horses", nameText.getText(),commandsText.getText());
                 break;
             case "Осел":
-                connector.addCommand("donkeys", nameText.getText(),commandsText.getText());
+                flag = connector.addCommand("donkeys", nameText.getText(),commandsText.getText());
                 break;
             case "Верблюд":
-                connector.addCommand("camels", nameText.getText(),commandsText.getText());
+                flag = connector.addCommand("camels", nameText.getText(),commandsText.getText());
                 break;
         }
-        nameText.setVisible(false);
-        commandsText.setVisible(false);
+        if (!flag) {
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("command-failed.fxml"));
+            Stage stage = new Stage();
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 400, 150);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            stage.setTitle("Ошибка");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } else {
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("command-success.fxml"));
+            Stage stage = new Stage();
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 400, 150);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            stage.setTitle("Успешно");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        }
     }
 
 }

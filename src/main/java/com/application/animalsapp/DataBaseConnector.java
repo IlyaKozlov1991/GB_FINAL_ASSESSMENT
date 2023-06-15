@@ -31,17 +31,18 @@ public class DataBaseConnector {
         return  list;
     }
 
-    public void addAnimal(String table, String name, String birth, String commands) {
-        executeAddAnimal(table, name, birth, commands);
-    }
+    public void addAnimal(String table, String name, String birth, String commands) { executeAddAnimal(table, name, birth, commands); }
 
-    public void addCommand(String table, String name, String newCommand) {
-        executeAddCommand(table, name,newCommand);
+    public boolean addCommand(String table, String name, String newCommand) {
+        return executeAddCommand(table, name,newCommand);
     }
 
     public boolean serverConnectionCheck() {
-        boolean flag = requestToServer();
-        return  flag;
+        return  requestToServer();
+    }
+
+    public int readCounter() {
+        return executeReadCounter();
     }
 
     private boolean requestToServer() {
@@ -127,33 +128,74 @@ public class DataBaseConnector {
             Statement statement = connection.createStatement();
             statement.executeUpdate("insert into " + table + " (name, birth, commands)" +
                     "\nvalues (\'" + name + "\', \'" + birth + "\', \'" + commands + "\')");
+            setCounter();
         } catch (SQLException e) {
             System.out.println("Fault: " + e.getMessage());
         }
     }
 
-    private void executeAddCommand(String table, String name, String newCommand) {
+    private boolean executeAddCommand(String table, String name, String newCommand) {
+        boolean flag = false;
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
             DriverManager.getDriver(URL);
             Statement statement = connection.createStatement();
             String respone = "";
-            ResultSet resultSet = statement.executeQuery("select commands from " + table +
+            /*
+            Ответ на первый запрос null/null/null -> поле в БД не найдено
+             */
+            ResultSet initSet = statement.executeQuery("select * from " + table +
                     "\nwhere name = \'" + name + "\'");
-            while (resultSet.next()) {
-                respone += resultSet.getString(1);
+            while (initSet.next()) {
+                respone = respone + initSet.getString(2) + initSet.getString(3) + initSet.getString(4);
             }
-            statement.executeUpdate("update " + table +
-                    "\nset commands = " + "\'" + respone + ", " + newCommand + "\'" +
-                    "\nwhere name = \'" + name + "\'");
-            respone = "";
-            resultSet = statement.executeQuery("select commands from " + table +
-                    "\nwhere name = \'" + name + "\'");
-            while (resultSet.next()) {
-                respone += resultSet.getString(1);
+            if (!respone.equals("")) {
+                respone = "";
+                ResultSet resultSet = statement.executeQuery("select commands from " + table +
+                        "\nwhere name = \'" + name + "\'");
+                while (resultSet.next()) {
+                    respone += resultSet.getString(1);
+                }
+                statement.executeUpdate("update " + table +
+                        "\nset commands = " + "\'" + respone + ", " + newCommand + "\'" +
+                        "\nwhere name = \'" + name + "\'");
+                flag = true;
             }
-            System.out.println("Response: " + respone);
         } catch (SQLException e) {
             System.out.println("Fault: " + e.getMessage());
         }
+        return flag;
+    }
+
+    private void setCounter() {
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            DriverManager.getDriver(URL);
+            Statement statement = connection.createStatement();
+            Counter counter = new Counter();
+            ResultSet resultSet = statement.executeQuery("select counter from counter");
+            while (resultSet.next()) {
+                counter.setVal(resultSet.getInt(1));
+            }
+            counter.add();
+            statement.executeUpdate("update counter" +
+                    "\nset counter = " + counter.val);
+        } catch (SQLException e) {
+            System.out.println("Fault: " + e.getMessage());
+        }
+    }
+
+    private int executeReadCounter() {
+        Counter counter = null;
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            DriverManager.getDriver(URL);
+            Statement statement = connection.createStatement();
+            counter = new Counter();
+            ResultSet resultSet = statement.executeQuery("select counter from counter");
+            while (resultSet.next()) {
+                counter.setVal(resultSet.getInt(1));
+            }
+        } catch (SQLException e) {
+            System.out.println("Fault: " + e.getMessage());
+        }
+        return counter.val;
     }
 }
