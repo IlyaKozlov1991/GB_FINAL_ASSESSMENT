@@ -64,20 +64,7 @@ public class DataBaseConnector {
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
             DriverManager.getDriver(URL);
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from cats");
-            temp.add(new Cat("КОШКИ", "", ""));
-            while (resultSet.next()) {
-                HomePet homePet = new HomePet(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
-                temp.add(homePet);
-            }
-            resultSet = statement.executeQuery("select * from dogs");
-            temp.add(new Cat("СОБАКИ", "", ""));
-            while (resultSet.next()) {
-                HomePet homePet = new HomePet(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
-                temp.add(homePet);
-            }
-            resultSet = statement.executeQuery("select * from hamsters");
-            temp.add(new Cat("ХОМЯКИ", "", ""));
+            ResultSet resultSet = statement.executeQuery("select * from cats union select * from dogs union select * from hamsters");
             while (resultSet.next()) {
                 HomePet homePet = new HomePet(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
                 temp.add(homePet);
@@ -95,20 +82,7 @@ public class DataBaseConnector {
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
             DriverManager.getDriver(URL);
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from horses");
-            temp.add(new Cat("ЛОШАДИ", "", ""));
-            while (resultSet.next()) {
-                PackAnimal packAnimal = new PackAnimal(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
-                temp.add(packAnimal);
-            }
-            resultSet = statement.executeQuery("select * from donkeys");
-            temp.add(new Cat("ОСЛЫ", "", ""));
-            while (resultSet.next()) {
-                PackAnimal packAnimal = new PackAnimal(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
-                temp.add(packAnimal);
-            }
-            resultSet = statement.executeQuery("select * from camels");
-            temp.add(new Cat("ВЕРБЛЮДЫ", "", ""));
+            ResultSet resultSet = statement.executeQuery("select * from horses union select * from donkeys union select * from camels");
             while (resultSet.next()) {
                 PackAnimal packAnimal = new PackAnimal(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
                 temp.add(packAnimal);
